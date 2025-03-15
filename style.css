@@ -16,58 +16,70 @@
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     background-color: var(--color-primary);
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: "Inter", sans-serif;
 }
 
 .main-content {
     display: flex;
     flex-direction: column;
-    height: 100%;
     width: 100%;
+    max-width: 800px; /* Limitar ancho máximo en pantallas grandes */
+    margin: 0 auto;
+    height: 100vh;
 }
 
 /* Banner */
 .header-banner {
-    flex: 40%;
+    flex: auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 40px 0 0;
+    padding: 20px 10px;
+}
+
+.header-banner img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
 }
 
 /* Sección de entrada */
 .input-section {
-    flex: 60%;
+    flex: auto;
     background-color: var(--color-secondary);
     border: 1px solid #000;
     border-radius: 64px 64px 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 20px 15px;
     width: 100%;
 }
 
 /* Títulos */
 .main-title {
-    font-size: 48px;
+    font-size: clamp(28px, 5vw, 48px); /* Tamaño responsive */
     font-family: "Merriweather", serif;
     font-weight: 900;
     font-style: italic;
     color: var(--color-white);
+    text-align: center;
 }
 
 .section-title {
     font-family: "Inter", serif;
-    font-size: 36px;
+    font-size: clamp(22px, 4vw, 36px); /* Tamaño responsive */
     font-weight: 700;
     color: var(--color-primary);
     margin: 10px 0;
     text-align: center;
+    padding: 0 10px;
 }
 
 /* Contenedores de entrada y botón */
@@ -75,8 +87,9 @@ body {
     display: flex;
     justify-content: center;
     width: 100%;
-    max-width: 600px;
+    max-width: 500px;
     margin-top: 20px;
+    padding: 0 10px;
 }
 
 .input-name {
@@ -88,25 +101,14 @@ body {
 }
 
 .button-container {
-    width: 300px;
-    justify-content: center;
-}
-
-/* Estilos de entrada de texto */
-.input-title {
-    flex: 1;
-    padding: 10px 15px;
-    font-size: 16px;
-    border: 2px solid #333;
-    border-right: none;
-    border-radius: 25px 0 0 25px;
-    font-family: "Merriweather", serif;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 300px;
+    margin-top: 20px;
 }
 
 /* Estilos de botón */
 button {
-    padding: 15px 30px;
+    padding: 12px 20px;
     font-family: "Inter", sans-serif;
     font-size: 16px;
     border: 2px solid #000;
@@ -119,6 +121,8 @@ button {
     background-color: var(--color-tertiary);
     color: var(--color-text);
     border-radius: 0 25px 25px 0;
+    white-space: nowrap;
+    padding: 10px 15px;
 }
 
 .button-add:hover {
@@ -132,6 +136,16 @@ ul {
     font-family: "Inter", sans-serif;
     font-size: 18px;
     margin: 20px 0;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.name-list li {
+    margin-bottom: 8px;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
 }
 
 .result-list {
@@ -146,17 +160,69 @@ ul {
 .button-draw {
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 100%;
-    padding: 10px 40px;
+    padding: 10px 20px;
     color: var(--color-white);
     background-color: var(--color-button);
     font-size: 16px;
 }
 
 .button-draw img {
-    margin-right: 40px;
+    margin-right: 15px;
+    width: 24px;
+    height: 24px;
 }
 
 .button-draw:hover {
     background-color: var(--color-button-hover);
+}
+
+/* Media queries para mejorar responsividad */
+@media (max-width: 480px) {
+    .header-banner {
+        padding: 15px 5px;
+    }
+    
+    .input-section {
+        border-radius: 30px 30px 0 0;
+        padding: 15px 10px;
+    }
+    
+    .input-name {
+        font-size: 14px;
+    }
+    
+    .button-add {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+    
+    .button-draw {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+    
+    ul {
+        font-size: 16px;
+    }
+    
+    .result-list {
+        font-size: 18px;
+    }
+}
+
+/* Asegurar que los elementos no se salgan de la pantalla en dispositivos muy pequeños */
+@media (max-width: 320px) {
+    .main-title {
+        font-size: 24px;
+    }
+    
+    .section-title {
+        font-size: 20px;
+    }
+    
+    .button-draw img {
+        margin-right: 10px;
+    }
 }

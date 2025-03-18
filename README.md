@@ -1,5 +1,7 @@
 # 🎁 Aplicación de Amigo Secreto
 
+Desafio subido o enviado a ALURA
+
 Una aplicación web para organizar sorteos de amigo secreto de manera sencilla y divertida. Permite agregar participantes a una lista y realizar un sorteo aleatorio para determinar el amigo secreto.
 
 ## 📋 Funcionalidades
